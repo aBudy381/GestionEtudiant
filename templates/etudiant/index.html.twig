@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant index{% endblock %}
+
+{% block body %}
+
+    <h1>Liste Etudiants</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Groupe</th>
+                <th>Moyenne</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiant in etudiants %}
+            <tr>
+                <td>{{ etudiant.id }}</td>
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+                <td>{{ etudiant.groupe.name }}</td>
+                <td>{{ etudiant.moyenne }}</td>
+                <td>
+                    <a href="{{ path('etudiant_show', {'id': etudiant.id}) }}"class="btn btn-warning">show</a>
+                    <a href="{{ path('etudiant_edit', {'id': etudiant.id}) }}"class="btn btn-warning">edit</a>
+                    <a href="/article/delete/{{ etudiant.id }}" class="btn btn-danger" onclick="return confirm('Etesvous sûr de supprimer cet article?');">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('etudiant_new') }}"class="btn btn-outline-dark">Create new</a>
+{% endblock %}

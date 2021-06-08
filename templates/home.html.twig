@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title%}Home page{% endblock %}
+{% block body %}
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+  </ol>
+  
+  <!-- Wrapper for slides -->
+ 
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1>Systeme de gestion d'Etudiant</h1>        
+            <h3>Bienvenue dans notre systeme de gestion</h3>
+        </hgroup> 
+        <a href="/etudiant" class="btn btn-hero btn-lg"role="button">Dashboard</a>      
+      </div>
+    </div> 
+{% endblock %}
